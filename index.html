@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Project 1 </title>
+	</head>
+	<body>
+		<p>
+			My initial approach was to use to divide each picture into the respective red blue and green, crop them, then use a double for loop to find the best alignment with SSD as a metric.
+			For jpgs, I didn't build a pyramid and instead used a double for loop to loop through width/10 for x and height/10 for y, before translating them using np.roll with the best alignment.
+			For tiffs, I built a pyramid by scaling each level by a factor of 1/2 and then updating the best alignment as I went down the pyramid. I tried to parallelize finding the alignments for 
+			red and green using the multithreaded library, but starmap would get stuck on the first loop, so I just used the default map function for python instead. It has the same performance as the
+			double for loop, but it suggests the idea of parallelization.<br>
+		</p>
+		<p>
+			For jpgs, I have cathedral: Green offset - (2, 5) Red offset - (3, 12)<br>
+			<img src="colored_cathedral.jpg"><br>
+			monastery: Green offset - (2, -3) Red offset - (2, 3)<br>
+			<img src = "colored_monastery.jpg"><br>
+			tobolsk: Green offset - (3, 3) Red offset - (3, 6)<br>
+			<img src = "colored_tobolsk.jpg"><br>
+			VlAsnoiPolianie: Green offset - (0, 2) Red offset: (1, 5)<br>
+			<img src = "colored_VlAsnoiPolianie.jpg", width = "317", height = "272"><br>
+		</p>
+		<p>
+			For tiffs I have church: Green offset - (4, 25) Red offset - (0, 64)<br>
+			<img src = "church.jpg", width = "317", height = "272"><br>
+			emir: Green offset - (32, 50) Red offset - (64, 104) <br>
+			<img src = "emir.jpg", width = "317", height = "272"><br>
+			harvesters: Green offset - (32, 64) Red offset - (16, 128)<br>
+			<img src = "harvesters.jpg", width = "317", height = "272"><br> 
+			icon: Green offset - (32, 48) Red offset - (32, 96)<br>
+			<img src = "icon.jpg", width = "317", height = "272"><br>
+			lady: Green offset - (16, 48) Red offset - (16, 112)<br>
+			<img src = "lady.jpg", width = "317", height = "272"><br>
+			melons: Green offset - (16, 96) Red offset - (16, 180)<br>
+			<img src = "melons.jpg", width = "317", height = "272"><br>
+			onion_church: Green offset - (32, 50) Red offset - (36, 112)<br>
+			<img src = "onion_church.jpg", width = "317", height = "272"><br>
+			self_portrait: Green offset - (32, 80) Red offset - (40, 177)<br>
+			<img src = "self_portrait.jpg", width = "317", height = "272"><br>
+			three_generations: Green offset - (16, 64) Red offset - (16, 128)<br>
+			<img src = "three_generations.jpg", width = "317", height = "272"><br>
+			train: Green offset - (8, 48) Red offset - (33, 96)<br>
+			<img src = "train.jpg", width = "317", height = "272"><br>
+			workshop: Green offset - (0, 53) Red offset - (0, 105)<br>
+			<img src = "workshop.jpg", width = "317", height = "272"><br>
+			Siren: Green offset - (0, 64) Red offset - (0, 96)<br>
+			<img src = "Siren.jpg", width = "317", height = "272"><br>
+		</p>
+	</body>
+</html>
